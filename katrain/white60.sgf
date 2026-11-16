@@ -1,0 +1,4 @@
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[19]KM[6.50]
+GN[Sankei Cup preliminaries pro division round 3]PW[Artem Kachanovskiy]PB[Sonoda Yuichi]WR[1p]BR[9p]RE[W+0.50]MULTIGOGM[1]
+KAGLESSON[white60];B[pe];W[dp];B[cn];W[fq];B[ed];W[pp];B[dj];W[cc];B[ce];W[ec];B[fc];W[dd];B[eb];W[dc];B[cg];W[fd];B[gd];W[ee];B[gb];W[ge];B[hd];W[he];B[ie];W[pc];B[if];W[nd];B[ff];W[fe];B[lc];W[ld];B[kd];W[mc];B[le];W[md];B[kc];W[nf];B[qc];W[qb];B[qh];W[eg];B[qk];W[cl];B[gg];W[hg];B[ef];W[hf];B[df];W[dm];B[cp];W[cq];B[do];W[bp];B[bo];W[co];B[hh];W[ig];B[cp];W[id];B[ic];W[co]KAGSTEP[start](;B[pb]KAGSTEP[threat];W[qd]KAGSTEP[reply];B[cp]KAGSTEP[capture];W[rc]KAGSTEP[cost];B[ep];W[co])(;B[ep]KAGSTEP[local];W[cp]KAGSTEP[try];B[dn]KAGSTEP[compare]))

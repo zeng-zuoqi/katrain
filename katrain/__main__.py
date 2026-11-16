@@ -95,6 +95,7 @@ from katrain.core.constants import (
     VERSION,
 )
 from katrain.core.contribute_engine import KataGoContributeEngine
+from katrain.core import white60
 from katrain.core.game import BaseGame, Game, IllegalMoveException, KaTrainSGF
 from katrain.core.lang import DEFAULT_LANGUAGE, i18n
 from katrain.core.remote_engine import make_engine
@@ -119,6 +120,23 @@ from katrain.gui.widgets.panels import PlayerSetupBlock
 
 class KaTrainGui(Screen, KaTrainBase):
     """Top level class responsible for tying everything together"""
+
+    lesson_prompt = StringProperty("")
+    lesson_action = StringProperty("")
+    lesson_summary = False
+
+    def _refresh_lesson(self, _dt):
+        if self.game and self.game.root.get_property("KAGLESSON") == "white60":
+            self.lesson_prompt, self.lesson_action, _ = white60.describe(self.game.current_node, self.lesson_summary)
+        else:
+            self.lesson_prompt = self.lesson_action = ""
+
+    def _do_lesson_next(self):
+        node = self.game.current_node
+        target = white60.destination(node)
+        if target:
+            self.lesson_summary = node.get_property("KAGSTEP") == "cost"
+            self.game.set_current_node(target)
 
     zen = NumericProperty(0)
     controls = ObjectProperty(None)
@@ -276,6 +294,7 @@ class KaTrainGui(Screen, KaTrainBase):
         if not self.game or not self.game.current_node:
             return
         cn = self.game.current_node
+        Clock.schedule_once(self._refresh_lesson)
         if not self.contributing:
             last_player, next_player = self.players_info[cn.player], self.players_info[cn.next_player]
             if self.play_analyze_mode == MODE_PLAY and self.nav_drawer.state != "open" and self.popup_open is None:

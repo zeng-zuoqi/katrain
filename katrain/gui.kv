@@ -1171,6 +1171,25 @@
                             id: play_mode
                             size_hint_y: None
                             height: analysis_controls.height
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: dp(112) if root.lesson_prompt else 0
+                            opacity: 1 if root.lesson_prompt else 0
+                            disabled: not root.lesson_prompt
+                            Label:
+                                font_name: 'NotoSansCJKsc-Regular.otf'
+                                text: root.lesson_prompt
+                                text_size: self.width - dp(16), None
+                                halign: 'left'
+                            Button:
+                                size_hint_y: None
+                                height: dp(34) if root.lesson_action else 0
+                                opacity: 1 if root.lesson_action else 0
+                                disabled: not root.lesson_action
+                                font_name: 'NotoSansCJKsc-Regular.otf'
+                                text: root.lesson_action
+                                on_release: root('lesson-next')
                         ControlsPanel:
                             id: controls
         NavigationDrawer:
