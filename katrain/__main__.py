@@ -131,6 +131,9 @@ class KaTrainGui(Screen, KaTrainBase):
         else:
             self.lesson_prompt = self.lesson_action = ""
 
+    def advance_lesson(self):
+        self("lesson-next")
+
     def _do_lesson_next(self):
         node = self.game.current_node
         target = white60.destination(node)

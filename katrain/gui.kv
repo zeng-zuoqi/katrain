@@ -1189,7 +1189,7 @@
                                 disabled: not root.lesson_action
                                 font_name: 'NotoSansCJKsc-Regular.otf'
                                 text: root.lesson_action
-                                on_release: root('lesson-next')
+                                on_release: root.advance_lesson()
                         ControlsPanel:
                             id: controls
         NavigationDrawer:
